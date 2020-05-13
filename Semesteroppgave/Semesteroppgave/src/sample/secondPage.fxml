@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane prefHeight="676.0" prefWidth="1309.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerSecondPage">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fdfdfd" height="562.0" layoutX="33.0" layoutY="57.0" stroke="BLACK" strokeType="INSIDE" width="478.0" />
+      <Button layoutX="214.0" layoutY="422.0" mnemonicParsing="false" onAction="#leggTilDel" prefHeight="26.0" prefWidth="115.0" text="Legg til del" />
+      <ComboBox fx:id="comboType" layoutX="197.0" layoutY="149.0" prefHeight="26.0" prefWidth="149.0" promptText="Type" />
+      <TextField fx:id="txtNyDelnavn" layoutX="115.0" layoutY="239.0" prefHeight="26.0" prefWidth="311.0" promptText="Delnavn" />
+      <TextField fx:id="txtNyPris" layoutX="198.0" layoutY="326.0" prefHeight="26.0" prefWidth="150.0" promptText="Pris" />
+      <TableView fx:id="tblNyDel" editable="true" layoutX="528.0" layoutY="95.0" prefHeight="458.0" prefWidth="668.0">
+        <columns>
+          <TableColumn fx:id="tblNyType" onEditCommit="#txtDataEditedDelType" prefWidth="100.79998779296875" text="Type">
+            <cellValueFactory>
+                <PropertyValueFactory property="Type" />
+            </cellValueFactory>
+        </TableColumn>
+          <TableColumn fx:id="tblNyDelnavn" onEditCommit="#txtDataEditedDelnavn" prefWidth="458.39996337890625" text="Delnavn">
+            <cellValueFactory>
+                <PropertyValueFactory property="DelNavn" />
+            </cellValueFactory>
+        </TableColumn>
+            <TableColumn fx:id="tblNyPris" minWidth="0.0" onEditCommit="#txtDataEditedDelPris" prefWidth="108.800048828125" text="Pris">
+                <cellValueFactory>
+                    <PropertyValueFactory property="DelPris" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+      </TableView>
+      <Button layoutX="214.0" layoutY="478.0" mnemonicParsing="false" onAction="#backToMainPage" prefHeight="26.0" prefWidth="115.0" text="Tilbake" />
+      <Button layoutX="528.0" layoutY="568.0" mnemonicParsing="false" onAction="#removeNewPart" prefHeight="26.0" prefWidth="100.0" text="Fjern del" />
+      <ComboBox fx:id="comboSearchColumn" layoutX="528.0" layoutY="57.0" prefHeight="26.0" prefWidth="198.0" promptText="Velg kolonne her" />
+      <TextField fx:id="txtSecondSearchField" layoutX="763.0" layoutY="58.0" onKeyTyped="#searchNewParts" prefHeight="26.0" prefWidth="167.0" promptText="Søk her..." />
+     <!-- <Button layoutX="835.0" layoutY="530.0" mnemonicParsing="false" onAction="#saveFile" prefHeight="26.0" prefWidth="100.0" text="Lagre fil" />-->
+   </children>
+</AnchorPane>

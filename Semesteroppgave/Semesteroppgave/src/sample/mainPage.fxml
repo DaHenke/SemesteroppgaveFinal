@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="786.0" prefWidth="1542.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerMainPage">
+   <children>
+      <Label layoutX="36.0" layoutY="21.0" prefHeight="30.0" prefWidth="184.0" text="Velkommen!">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="664.0" layoutX="27.0" layoutY="51.0" stroke="BLACK" strokeType="INSIDE" width="705.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="664.0" layoutX="739.0" layoutY="51.0" stroke="BLACK" strokeType="INSIDE" width="745.0" />
+      <TabPane layoutX="745.0" layoutY="57.0" prefHeight="644.0" prefWidth="734.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Handlevogn">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tblPCdel" layoutY="-3.0" prefHeight="372.0" prefWidth="734.0">
+                          <columns>
+                            <TableColumn fx:id="tblType" prefWidth="130.39996337890625" text="Type">
+                               <cellValueFactory>
+                                  <PropertyValueFactory property="Type" />
+                               </cellValueFactory>
+                            </TableColumn>
+                              <TableColumn fx:id="tblDel" prefWidth="428.800048828125" text="Delnavn">
+                                 <cellValueFactory>
+                                    <PropertyValueFactory property="DelNavn" />
+                                 </cellValueFactory>
+                              </TableColumn>
+                              <TableColumn fx:id="tblPris" prefWidth="177.59995117187498" text="Pris">
+                                 <cellValueFactory>
+                                    <PropertyValueFactory property="DelPris" />
+                                 </cellValueFactory>
+                              </TableColumn>
+                          </columns>
+                        </TableView>
+                        <Label layoutY="442.0" prefHeight="50.0" prefWidth="256.0" text="Finner du ikke delene du ønsker?" wrapText="true">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="btnOpenAdmin" layoutY="541.0" mnemonicParsing="false" onAction="#openAdmin" prefHeight="26.0" prefWidth="120.0" text="Logg inn" />
+                        <Label layoutY="484.0" prefHeight="49.0" prefWidth="120.0" text="Logg inn som administrator her:" wrapText="true">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="363.0" layoutY="387.0" mnemonicParsing="false" onAction="#buyPC" prefHeight="26.0" prefWidth="138.0" text="Kjøp" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" layoutX="506.0" layoutY="385.0" stroke="BLACK" strokeType="INSIDE" width="228.0" />
+                        <Label fx:id="lblSum" layoutX="582.0" layoutY="387.0" prefHeight="26.0" prefWidth="147.0" text="0.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="514.0" layoutY="387.0" prefHeight="26.0" prefWidth="68.0" text="Sum:" underline="true">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Button layoutY="385.0" mnemonicParsing="false" onAction="#btnRemoveGPU" prefHeight="26.0" prefWidth="198.0" text="Fjern fra handlevogn" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Tidligere kjøp">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="295.0" prefWidth="384.0">
+                     <children>
+                        <TableView fx:id="tblPackage" layoutY="-1.0" prefHeight="370.0" prefWidth="738.0">
+                          <columns>
+                            <TableColumn fx:id="tblPCPackage" prefWidth="513.6001586914062" text="Ordrenummer">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="packageNumber" />
+                                </cellValueFactory>
+                            </TableColumn>
+                              <TableColumn fx:id="tblPricePackage" prefWidth="223.9998779296875" text="Pris">
+                                  <cellValueFactory>
+                                      <PropertyValueFactory property="packagePrice" />
+                                  </cellValueFactory>
+                              </TableColumn>
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <ComboBox fx:id="comboCPU" layoutX="51.0" layoutY="109.0" prefHeight="26.0" prefWidth="198.0" promptText="CPU..." />
+      <ComboBox fx:id="comboGPU" layoutX="51.0" layoutY="243.0" prefHeight="26.0" prefWidth="198.0" promptText="GPU..." />
+      <ComboBox fx:id="comboRAM" layoutX="51.0" layoutY="380.0" prefHeight="26.0" prefWidth="198.0" promptText="RAM..." />
+      <ComboBox fx:id="comboHDDSSDPC" layoutX="51.0" layoutY="517.0" prefHeight="26.0" prefWidth="198.0" promptText="HDD/SSD..." />
+      <ComboBox fx:id="comboMonitor" layoutX="330.0" layoutY="109.0" prefHeight="26.0" prefWidth="198.0" promptText="Skjerm" />
+      <ComboBox fx:id="comboKeyboard" layoutX="327.0" layoutY="380.0" prefHeight="26.0" prefWidth="198.0" promptText="Tastatur" />
+      <ComboBox fx:id="comboMouse" layoutX="327.0" layoutY="243.0" prefHeight="26.0" prefWidth="198.0" promptText="Mus" />
+      <Button layoutX="83.0" layoutY="153.0" mnemonicParsing="false" onAction="#regCPU" prefHeight="26.0" prefWidth="165.0" text="Legg i handlekurv" />
+      <Button layoutX="82.0" layoutY="287.0" mnemonicParsing="false" onAction="#regGPU" prefHeight="26.0" prefWidth="166.0" text="Legg i handlekurv" />
+      <Button layoutX="82.0" layoutY="427.0" mnemonicParsing="false" onAction="#regRAM" prefHeight="26.0" prefWidth="166.0" text="Legg i handlekurv" />
+      <Button layoutX="82.0" layoutY="564.0" mnemonicParsing="false" onAction="#regHDD" prefHeight="26.0" prefWidth="166.0" text="Legg i handlekurv" />
+      <Button layoutX="361.0" layoutY="153.0" mnemonicParsing="false" onAction="#regMonitor" prefHeight="26.0" prefWidth="166.0" text="Legg i handlekurv" />
+      <Button layoutX="358.0" layoutY="287.0" mnemonicParsing="false" onAction="#regMouse" prefHeight="26.0" prefWidth="166.0" text="Legg i handlekurv" />
+      <Button layoutX="358.0" layoutY="427.0" mnemonicParsing="false" onAction="#regKeyboard" prefHeight="26.0" prefWidth="166.0" text="Legg i handlekurv" />
+      <ComboBox fx:id="comboCabinett" layoutX="330.0" layoutY="515.0" prefHeight="26.0" prefWidth="198.0" promptText="Kabinett" />
+      <Button layoutX="361.0" layoutY="567.0" mnemonicParsing="false" onAction="#regCabinett" prefHeight="26.0" prefWidth="166.0" text="Legg i handlekurv" />
+   </children>
+</AnchorPane>
